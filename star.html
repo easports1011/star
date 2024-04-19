@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starophile</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background-image: url('https://i.ibb.co/4Vv5m90/image-from-rawpixel-id-6034956-original.webp');
+    background-size: cover; /* Cover the entire viewport */
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    position: relative;
+  }
+  
+  h1 {
+  text-align: center;
+  padding: 10px;
+  }
+
+  #dropdown-container {
+    position: absolute;
+    top: 45px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 1; /* Ensure dropdown appears above images */
+  }
+
+  #image-container {
+    position: absolute;
+    top: 105px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+  }
+
+  #dropdown {
+    background-color: #333; /* Dropdown background color */
+    color: white; /* Dropdown text color */
+    border: none; /* Remove default border */
+    padding: 10px; /* Add padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+  }
+
+  #dropdown option {
+    background-color: #222; /* Dropdown option background color */
+  }
+
+  .image-container {
+    display: none;
+  }
+  
+  #option1 {
+  display: block;
+  }
+
+  .image-container img {
+    max-width: 100%; /* Ensure images don't exceed container width */
+	max-height: 100%;
+  }
+  
+  
+/* four point star */
+  
+.four-pointed-star {
+  position: relative;
+  margin: 1em auto;
+  width: 1em;
+  font-size: 12em;
+}
+
+.four-pointed-star:before,
+.four-pointed-star:after {
+  content: "";
+  position: absolute;
+  background: white;
+  width: 1em;
+  height: 1.15em;
+  transform: skewX(22.5deg) skewY(22.5deg);
+}
+
+.four-pointed-star:before {
+  transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5); /* Add glow effect */
+}
+
+.four-pointed-star:after {
+  transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5); /* Add glow effect */
+}
+/* end */
+
+.five-pointed-star {
+ --star-color:orange;
+ margin:1em auto;
+ font-size:10em;
+ position: relative;
+ display: block;
+ width: 0px;
+ height: 0px;
+ border-right: 1em solid transparent;
+ border-bottom: 0.7em solid var(--star-color);
+ border-left: 1em solid transparent;
+ transform: rotate(35deg);
+}
+.five-pointed-star:before {
+ border-bottom: 0.8em solid var(--star-color);
+ border-left: 0.3em solid transparent;
+ border-right: 0.3em solid transparent;
+ position: absolute;
+ height: 0;
+ width: 0;
+ top: -0.45em;
+ left: -0.65em;
+ display: block;
+ content:"";
+ transform: rotate(-35deg);
+}
+.five-pointed-star:after {
+ position: absolute;
+ display: block;
+ top: 0.03em;
+ left: -1.05em;
+ width: 0;
+ height: 0;
+ border-right: 1em solid transparent;
+ border-bottom: 0.7em solid var(--star-color);
+ border-left: 1em solid transparent;
+ transform: rotate(-70deg);
+ content:"";
+}
+
+/* kid star css*/
+.hand-drawn-star {
+  margin: 10em auto;
+  position: relative;
+  width: 8em; /* Adjust size as needed */
+  height: 8em; /* Adjust size as needed */
+}
+
+.hand-drawn-star .star-line {
+  position: absolute;
+  width: calc(100% - 3px);
+  height: 3px;
+  background-color: white;
+  transform-origin: 50% 50%;
+}
+
+.hand-drawn-star .star-line:nth-child(1) {
+  top: 50%;
+  left: 0;
+  transform: rotate(75deg);
+}
+
+.hand-drawn-star .star-line:nth-child(2) {
+  top: 50%;
+  left: -25%;
+  transform: rotate(-75deg);
+}
+
+.hand-drawn-star .star-line:nth-child(3) {
+  top: 63%;
+  left: -23%;
+  transform: rotate(43deg);
+}
+
+.hand-drawn-star .star-line:nth-child(4) {
+  top: 63%;
+  transform: rotate(-43deg);
+}
+
+.hand-drawn-star .star-line:nth-child(5) {
+  top: 30%;
+  left: -10%;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<h1>THE MOON:</h1>
+
+<div id="dropdown-container">
+  <select id="dropdown" onchange="showImage()">
+    <option value="option1">How kids draw a star:</option>
+    <option value="option2">How we see it from our eyes:</option>
+    <option value="option3">How scientists say they are: </option>
+    <option value="option4">The real star:</option>
+  </select>
+</div>
+
+<div id="image-container">
+  <div class="image-container" id="option1">
+	<div class="hand-drawn-star">
+		<div class="star-line"></div>
+		<div class="star-line"></div>
+		<div class="star-line"></div>
+		<div class="star-line"></div>
+		<div class="star-line"></div>
+	</div>
+  </div>
+
+  <div class="image-container" id="option2">
+    <div class="four-pointed-star"></div>
+  </div>
+
+  <div class="image-container" id="option3">
+    <img src="https://i.ibb.co/9WFfzNN/starblend.png" alt="The Moon 1080p not found :\">
+  </div>
+
+  <div class="image-container" id="option4">
+    <img src="https://i.ibb.co/XyHG1V6/pewpew.jpg" alt="The Moon 1080p not found :\">
+  </div>
+  
+</div>
+
+<script>
+function showImage() {
+	var dropdown = document.getElementById("dropdown");
+	var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+
+	// Hide all image containers
+	var imageContainers = document.getElementsByClassName("image-container");
+	for (var i = 0; i < imageContainers.length; i++) {
+		imageContainers[i].style.display = "none";
+	}
+
+	// Show the selected image container
+	document.getElementById(selectedValue).style.display = "block";
+}
+</script>
+
+</body>
+</html>
